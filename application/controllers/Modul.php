@@ -17,7 +17,7 @@ class Modul extends CI_Controller {
 	    $data['menu'] 			= $this->main->getMenu($data['userdata']['id_modul']);
 		$data['content']		= 'modul/index.php';
 
-		$this->load->view('template/main', $data, FALSE);
+		$this->load->view('template/main2', $data, FALSE);
 	}
 
 }

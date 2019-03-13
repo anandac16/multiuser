@@ -105,29 +105,28 @@
 
                           echo "<li $classmenuaktif ><a href='".base_url().$datamenu[$i]['linked']."'><i class='".$datamenu[$i]['icon']."'></i>".$datamenu[$i]['menu']."</a>";
 
-                       ## JIKA MEMILIKI SUBMENU ##
                        }else{
 
                           $submenu = explode(";", $datamenu[$i]['submenu']);
-                          // $daftar = explode(";", $datamenu[$i]['daftar']);
+                          $daftar = explode(";", $datamenu[$i]['daftar']);
                           $ns = count($submenu);
                           
-                          // if (in_array($uri[0], $daftar)) {
+                          if (in_array($uri[0], $daftar)) {
                             
-                          //   echo "<li class='open active'>
-                          //         <a>
-                          //         <i class='".$datamenu[$i]['icon']."'></i>".$datamenu[$i]['menu']."
-                          //         <span class='fa fa-chevron-down'></span>
-                          //         </a>
-                          //       ";
-                          // }else{
+                            echo "<li class='open active'>
+                                  <a>
+                                  <i class='".$datamenu[$i]['icon']."'></i>".$datamenu[$i]['menu']."
+                                  <span class='fa fa-chevron-down'></span>
+                                  </a>
+                                ";
+                          }else{
 
                             echo "<li>
                                   <a>
                                   <i class='".$datamenu[$i]['icon']."'></i>".$datamenu[$i]['menu']."
                                   <span class='fa fa-chevron-down'></span>
                                   </a>";
-                          // }
+                          }
 
                           echo "<ul class='nav child_menu'>";
                           for ($j=0; $j < $ns; $j++) { 
@@ -257,7 +256,7 @@
     <!-- iCheck -->
     <script src="<?=site_url('template/')?>vendors/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
-    <script src="<?=site_url('template/')?>vendors/skycons/skycons.js"></script>
+    <script src="<?=site_url('template/')?>vendors/skycons/skycons.js"></script>\
     <!-- validator -->
     <script src="<?=site_url('template/')?>vendors/validator/validator.js"></script>
     <!-- Flot -->

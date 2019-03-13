@@ -42,16 +42,23 @@ class Main_model extends CI_Model {
 
 	public function getMenu($id)
 	{
-		$this->db->select('menu.*, submenu.*');
+		$this->db->select('*');
 		$this->db->from('menu');
-		$this->db->join('submenu', 'submenu.id_menu = menu.id_menu', 'left');
+		$this->db->join('submenu', 'submenu.id_menu = menu.id_menu', 'LEFT');
 		$this->db->where('id_modul', $id);
+		$this->db->order_by('menu');
 		$query = $this->db->get();
+		
 		foreach ($query->result() as $obb) {
-			$result['menu'][$obb->id_menu]['menu'] = $obb->menu;
-			$result['menu'][$obb->id_menu]['icon'] = $obb->icon;
-			$result['menu'][$obb->id_menu]['level'] = $obb->level;
-			$result['menu'][$obb->id_menu]['submenu'][$obb->id_submenu]['submenu'] = $obb->submenu;
+			$result['menu'][$obb->menu]['menu'] = $obb->menu;
+			$result['menu'][$obb->menu]['icon'] = $obb->icon;
+			$result['menu'][$obb->menu]['level'] = $obb->level;
+			$result['menu'][$obb->menu]['linked'] = $obb->linked;
+			$result['menu'][$obb->menu]['id_modul'] = $obb->id_modul;
+			$result['menu'][$obb->menu]['submenu'][$obb->id_submenu] = array(
+				'submenu' => $obb->submenu,
+				'linked' => $obb->linked
+			);
 		}
 			return $result;
 	}
