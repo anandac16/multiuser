@@ -56,7 +56,13 @@ class Login extends CI_Controller {
 				}
 			}elseif($this->input->post('submit') == 'signup'){
 
-
+				$this->session->set_flashdata('msg_login', '
+						<div class="alert alert-danger alert-dismissible">
+    						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						  <strong>Danger,</strong> Form Pendaftaran Belum dibuka!
+						</div>
+					');
+				redirect(site_url('login/page'),'refresh');
 			}else{
 
 				$data['page'] = 'login';

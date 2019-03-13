@@ -36,8 +36,24 @@ class Main_model extends CI_Model {
 
 	public function get_menu($id_modul){
 		  
-			$query= $this->db->where('id_modul',0)->or_where('id_modul',$id_modul)->get('menu');
-			return $query->result_array();
+		$query= $this->db->where('id_modul',0)->or_where('id_modul',$id_modul)->get('menu');
+		return $query->result_array();
+	}
+
+	public function getMenu($id)
+	{
+		$this->db->select('menu.*, submenu.*');
+		$this->db->from('menu');
+		$this->db->join('submenu', 'submenu.id_menu = menu.id_menu', 'left');
+		$this->db->where('id_modul', $id);
+		$query = $this->db->get();
+		foreach ($query->result() as $obb) {
+			$result['menu'][$obb->id_menu]['menu'] = $obb->menu;
+			$result['menu'][$obb->id_menu]['icon'] = $obb->icon;
+			$result['menu'][$obb->id_menu]['level'] = $obb->level;
+			$result['menu'][$obb->id_menu]['submenu'][$obb->id_submenu]['submenu'] = $obb->submenu;
+		}
+			return $result;
 	}
 
 }

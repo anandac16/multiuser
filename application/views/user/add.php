@@ -110,6 +110,21 @@
                 </select>
               </div>
             </div>
+            <!--
+            <div class="item form-group">
+              <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Nama Controller <span class="required">*</span></label>
+              <div class="col-md-1 col-sm-3 col-xs-3">
+                <input id="password2" type="password" name="password2" data-validate-linked="password" class="form-control col-md-7 col-xs-12" required="required">
+              </div>
+              <label for="password2" class="control-label col-md-1 col-sm-1 col-xs-6">Nama Menu <span class="required">*</span></label>
+              <div class="col-md-1 col-sm-3 col-xs-3">
+                <input id="password2" type="password" name="password2" data-validate-linked="password" class="form-control col-md-7 col-xs-12" required="required">
+              </div>
+              <div class="col-md-1 col-sm-3 col-xs-3">
+                <a href="#" class="btn btn-md btn-success">Tambah Sub Menu</a>
+              </div>
+            </div>
+            -->
             <div class="ln_solid"></div>
             <div class="form-group">
               <div class="col-md-6 col-md-offset-3">
